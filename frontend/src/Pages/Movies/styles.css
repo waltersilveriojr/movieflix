@@ -1,0 +1,42 @@
+.movies-main {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 15px;
+}
+
+.movies-title {
+}
+
+.movies-title h1 {
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  mix-blend-mode: normal;
+}
+
+.movies-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.movies-list a {
+  font-weight: normal;
+  font-size: 18px;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+@media (min-width : 1200px){
+  
+  .movies-title h1 {
+    font-size: 48px;
+  }
+
+  .movies-list a {
+    font-size: 24px;
+  }
+  
+}

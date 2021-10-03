@@ -1,0 +1,161 @@
+.login-main {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  padding: 17px 10px;
+}
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 298px;
+  height: 464px;
+  padding: 17px 12px;
+}
+
+.login-card h1 {
+  margin-top: 55px;
+  margin-bottom: 20px;
+  font-size: 36px;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: -0.015em;
+  background: #6c6c6c;
+  color: #fff;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  background: #6c6c6c;
+}
+
+.login-input {
+  background: #fefefe;
+  border: 1px solid #fefefe;
+  border-radius: 4px;
+  height: 50px;
+  border: 1px solid #fefefe;
+}
+
+.login-form-submit {
+  background: #6c6c6c;
+}
+
+.login-form-submit button {
+  width: 100%;
+  background-color: #ffc700;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: -0.015em;
+  color: #000000;
+  margin-top: 54px;
+}
+
+.login-img-main {
+  display: none;
+}
+
+.invalid-feedback {
+  color: #ffc700;
+}
+
+.form-control:invalid {
+  border-color: #ffc700;
+}
+.alert-danger {
+    width: 100%;
+    color: #fff;
+    background-color: #842029;
+    border-color:  #842029;
+}
+
+@media (min-width: 576px) {
+  .login-card {
+    width: 479px;
+    height: 573px;
+    padding: 0px 50px;
+  }
+
+  .login-main {
+    padding: 40px 50px;
+    /* margin-top: 100px; */
+  }
+
+  .login-card h1 {
+    margin-top: 75px;
+    margin-bottom: 35px;
+    font-size: 48px;
+    font-weight: 400;
+  }
+
+  .login-form-submit button {
+    height: 65px;
+  }
+}
+
+@media (min-width: 576px) {
+  .login-card {
+    width: 479px;
+    height: 573px;
+    padding: 0px 50px;
+  }
+
+  .login-main {
+    padding: 40px 50px;
+  }
+
+  .login-card h1 {
+    margin-top: 75px;
+    margin-bottom: 35px;
+    font-size: 48px;
+    font-weight: 400;
+  }
+
+  .login-form-submit button {
+    height: 65px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .login-main {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    padding: 38px 10px;
+  }
+
+  .login-img-main {
+    margin-top: 43px;
+    display: flex;
+    flex-direction: column; 
+    width: 400px;
+    height: 480px;
+  }
+
+  .login-img-main h1 {
+    font-weight: bold;
+    font-size: 48px;
+    letter-spacing: -0.015em;
+    color: #ffffff;
+    margin-left: 30px;
+  }
+
+  .login-img-main p {
+    margin-top: 19px;
+    margin-left: 30px;
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: -0.015em;
+    color: #f2f2f2;
+  }
+
+  .login-img-main svg {
+    margin-top: 51px;
+   
+  }
+}

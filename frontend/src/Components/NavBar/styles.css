@@ -1,0 +1,31 @@
+.navbar-main {
+  display: flex;
+  align-items: center;  
+  min-height: 68px;
+  background-color: #ffc700;
+}
+
+.navbar-main h1 {
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: -0.015em;
+  color: #000000;
+  background-color: #ffc700;
+  margin-left: 18px;
+}
+
+.navbar-btn h1 {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+  margin-right: 14px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: -0.015em;
+  text-align: center;
+  color: #000000;
+}
