@@ -1,11 +1,15 @@
 import { AxiosRequestConfig } from "axios";
 import { useParams } from "react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { requestBackend } from "util/requests";
 import { useForm } from "react-hook-form";
 import ReviewCard from "Components/ReviewCard";
 import { hasAnyRoles } from "util/auth";
 import { Review } from "Types/Review";
+import { Movie } from "Types/Movie";
+import MovieCard from "Components/MovieCard";
+import LoaderDetail from "./LoaderDetail";
+import { toast } from 'react-toastify';
 
 import "./styles.css";
 
@@ -20,6 +24,7 @@ const MovieDetails = () => {
   };
 
   const { movieId } = useParams<UrlParams>();
+  const [movie, setMovie] = useState<Movie>();
 
   const [review, setReview] = useState<Review[]>();
 
@@ -27,24 +32,43 @@ const MovieDetails = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setValue
   } = useForm<FormData>();
+
+  const formClear = () => {
+    setValue('text','');
+  }
 
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
+  const loadReviews = useCallback(() => {
     const params: AxiosRequestConfig = {
-      url: `/movies/${movieId}/reviews`,
+      url: `/movies/${movie?.id}/reviews`,
       withCredentials: true,
     };
-
     requestBackend(params).then((response) => {
       setReview(response.data);
-      setIsLoading(false)
+    });
+  }, [movie]);
+
+  useEffect(() => {
+    const config: AxiosRequestConfig = {
+      method: "GET",
+      url: `/movies/${movieId}`,
+      withCredentials: true,
+    };
+    setIsLoading(true);
+    requestBackend(config).then((response) => {
+      setMovie(response.data);
+      setIsLoading(false);
     });
   }, [movieId]);
 
-  const onSubmit = (formData: FormData) => {
+  useEffect(() => {
+     loadReviews();
+  }, [loadReviews]);
 
+  const onSubmit = (formData: FormData) => {
     formData.movieId = parseInt(movieId);
 
     console.log(formData);
@@ -54,49 +78,57 @@ const MovieDetails = () => {
       method: "POST",
       data: formData,
     };
-    setIsLoading(true);
 
     requestBackend(params)
       .then((Response) => {
-        review?.push(Response.data);
-        setReview(review);
-        setIsLoading(false);
+        toast.info('Avaliacão inserida com sucesso');
+        loadReviews();
+        formClear();
       })
       .catch((error) => {
+        toast.error('Erro gravando avaliação');
       });
   };
 
   return (
     <div className="container-main">
-      <div className="card-title">
-        <h1>{`Tela detalhes do filme id: ${movieId}`}</h1>
-      </div>
-      {hasAnyRoles(["ROLE_MEMBER"]) && (
-        <div className="base-card form-card-review">
-          <form onSubmit={handleSubmit(onSubmit)} >
-            <div className="mb-3">
-              <input
-                {...register("text", {
-                  required: "Campo Obrigatório!",
-                })}
-                type="text"
-                className={`form-control form-input ${
-                  errors.text ? "is-invalid" : ""
-                } `}
-                placeholder="Deixe sua avaliação aqui"
-                name="text"
-              />
-              <div className="invalid-feedback d-block">
-                {errors.text?.message}
-              </div>
-            </div>
-            <div className="form-review-submit">
-              <button className="btn">SALVAR AVALIAÇÃO</button>
-            </div>
-          </form>
+      {isLoading ? (
+        <div>
+          <LoaderDetail></LoaderDetail>
         </div>
+      ) : (
+        <>
+          <div>
+            <MovieCard movie={movie ? movie : null} synopsis={true}></MovieCard>
+          </div>
+          {hasAnyRoles(["ROLE_MEMBER"]) && (
+            <div className="base-card form-card-review">
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div>
+                  <input
+                    {...register("text", {
+                      required: "Campo Obrigatório!",
+                    })}
+                    type="text"
+                    className={`form-control form-input ${
+                      errors.text ? "is-invalid" : ""
+                    } `}
+                    placeholder="Deixe sua avaliação aqui"
+                    name="text"
+                  />
+                  <div className="invalid-feedback d-block">
+                    {errors.text?.message}
+                  </div>
+                </div>
+                <div className="form-review-submit">
+                  <button className="btn">SALVAR AVALIAÇÃO</button>
+                </div>
+              </form>
+            </div>
+          )}
+        </>
       )}
-      {!isLoading && (
+      {review?.length && (
         <div className="base-card card-reviews">
           {review?.map((item) => (
             <ReviewCard

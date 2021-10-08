@@ -1,0 +1,237 @@
+.card-movie-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    min-height: 322px;
+    margin-bottom: 20px;
+}
+
+.card-movie-container-review {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    min-height: 322px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.card-movie-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-movie-image img {
+    width: 100%;
+    height: 165px;
+    margin-top: 26px;
+}
+
+.card-movie-image-review img {
+    width: 100%;
+    height: 165px;
+    margin-top: 0px;
+}
+
+.movie-content-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.mg-l-card-movie-title-container {
+    margin-left: 0px;
+}
+
+.card-movie-title-container {
+    margin-left: 15px;
+}
+
+.card-movie-title {
+    margin-top: 11px;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: -0.015em;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.card-movie-subtitle h1 {
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: -0.015em;
+    color: #FFC700;
+    text-decoration: none;
+}
+
+.card-movie-subtitle p {
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: -0.015em;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.card-movie-title-review {
+    margin-top: 11px;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: -0.015em;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.card-movie-subtitle-review h1 {
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: -0.015em;
+    color: #FFC700;
+    text-decoration: none;
+}
+
+.card-movie-subtitle-review p {
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: -0.015em;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.card-movie-synopsis {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #E1E1E1;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 13px 9px;
+}
+
+.card-movie-synopsis h1 {
+    font-weight: normal;
+    font-size: 16px;
+    text-align: justify;
+    letter-spacing: -0.015em;
+    color: #9E9E9E;
+}
+
+@media (min-width: 576px) {
+    .card-movie-container {
+        Width: 258px
+    }
+    .card-movie-container-review {
+        Width: 536px
+    }
+    .card-movie-image-review img {
+        width: 496px;
+        height: 311px;
+    }
+    .card-movie-title-review {
+        margin-top: 15px;
+    }
+    .card-movie-synopsis {
+        width: 496px;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-movie-container {
+        width: 324px;
+        height: 364px;
+    }
+    .card-movie-container-review {
+        width: 688px;
+        padding: 40px;
+        margin-bottom: 40px;
+        /* margin: 40px; */
+    }
+    .card-movie-title-container {
+        margin-left: 20px;
+    }
+    .card-movie-image img {
+        height: 203px;
+        margin-top: 20px;
+    }
+    .card-movie-image-review img {
+        width: 608px;
+        height: 382px;
+    }
+    .card-movie-title-review {
+        margin-top: 18px;
+        font-size: 36px;
+    }
+    .card-movie-subtitle-review h1 {
+        font-size: 24px;
+    }
+    .card-movie-subtitle-review p {
+        font-size: 24px;
+    }
+    .card-movie-synopsis {
+        width: 608px;
+    }
+    .card-movie-synopsis h1 {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-movie-container {
+        width: 436px;
+        height: 457px;
+    }
+    .card-movie-container-review {
+        width: 912px;
+    }
+    .card-movie-title {
+        margin-top: 21px;
+    }
+    .card-movie-image img {
+        height: 274px;
+    }
+    .card-movie-image-review {
+        margin-left: 112px;
+        margin-right: 112px;
+    }
+    .card-movie-synopsis {
+        width: 608px;
+    }
+    .card-movie-synopsis {
+        width: 832px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-movie-container {
+        width: 258px;
+        height: 322px;
+    }
+    .card-movie-container-review {
+        width: 1120px;
+        flex-direction: row;
+    }
+    .movie-content-container {
+        margin-left: 40px;
+    }
+    .card-movie-title {
+        margin-top: 10px;
+    }
+    .card-movie-title-container {
+        margin-left: 13px;
+    }
+    .card-movie-image img {
+        height: 164px;
+    }
+    .card-movie-image-review {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .card-movie-image-review img {
+        width: 500px;
+        height: 314px;
+    }
+    .card-movie-title-review {
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+    .card-movie-synopsis {
+        width: 500px;
+    }
+}

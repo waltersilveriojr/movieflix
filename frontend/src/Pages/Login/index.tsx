@@ -39,7 +39,6 @@ const Login = () => {
         setHasError(false);
         saveAuthData(Response.data);
         setAuthContextData({ authenticated: true, tokenData: getTokenData() });
-        console.log(from);
         history.replace(from);
       })
       .catch((error) => {

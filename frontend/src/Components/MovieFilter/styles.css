@@ -1,0 +1,40 @@
+.movie-filter-container {
+    padding: 8px 20px;
+    display: flex;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.movie-form-container {
+    width: 300px;
+}
+
+.movie-filter-select__control {
+    height: 42px;
+    font-size: 1em;
+    letter-spacing: -0.015em;
+    color: #fFF;
+    background-color: #6C6C6C !important;
+}
+
+.movie-filter-select__placeholder {
+    color: #FFFFFF !important;
+}
+
+.movie-filter-select__indicator-separator {
+    display: none;
+}
+
+.movie-filter-select__indicator {
+    color: #FFFFFF !important;
+}
+
+.movie-filter-select__single-value {
+    color: #FFFFFF !important;
+}
+
+@media (min-width: 768px) {
+    .movie-filter-container {
+        margin-bottom: 40px;
+    }
+}
